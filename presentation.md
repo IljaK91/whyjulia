@@ -2,7 +2,9 @@
 
 # Julia
 
-A new programming language *specifically* made for scientists and engineers
+A new programming language *specifically* made for scientists and engineers.
+
+Motto: Walks like Python, runs like C.
 
 
 Note: ~5 years ago at MIT
@@ -55,8 +57,8 @@ Note: Julia is mostly coded in Julia!
 
 ![](https://raw.githubusercontent.com/johnfgibson/whyjulia/8b7617de701a25387e40dc00ee20ad99f4695c47/figs/ks_cpu_vs_lines_1024.png)
 
-Note: 
-1. I wrote a flexible and fast ray tracer in Julia. It's 100 LOC. 
+Note:
+1. I wrote a flexible and fast ray tracer in Julia. It's 100 LOC.
 2. The study "Mash: fast genome and metagenome distance estimation using MinHash" used MinHashing -- a fast algorithm for comparing two sets of things -- for DNA sequence comparison. They implemented it in C for speed. Someone else made python bindings to the compiled C version. But someone implemented it directly in Julia and made it super fast in under 100 lines of very readable code.
 
 
@@ -110,7 +112,7 @@ julia> ↺(c, θ) = [cos(θ) -sin(θ); sin(θ) cos(θ)]*c
 julia> [1,0] ↺ π/2
 2-element Array{Float64,1}:
  0.0
- 1.0   
+ 1.0
 ```
 
 Note: This opens the door to tons of cool syntax.
@@ -169,16 +171,35 @@ Note: you can call Julia home without losing all of your furniture in the move.
 
 ---
 
-# Some of my favourite things
+# Some of my favourite things #1
 
-* [AxisArrays](https://github.com/JuliaArrays/AxisArrays.jl): Arrays where each dimension can have a named axis with ranged values.
-* [Images](https://github.com/JuliaImages/Images.jl) & [Colors](https://github.com/JuliaGraphics/Colors.jl): Treat colors as a unit.
-* `github` integration: your code and its documentation accessible to everyone, automatically tested on multiple architectures, with coverage reports. 
-
+* [QuantEcon](https://quantecon.org/): Provide lectures on quantitative economics including code to solve the models!
+  - They also provide [QuantEcon.jl](https://quantecon.org/quantecon-jl), a package with most of the functionality that you need as an economist, for example [CompEcon.jl](https://github.com/QuantEcon/CompEcon.jl).
+* [Parameters.jl](https://github.com/mauro3/Parameters.jl): Use parameters more comfortably.
+* [Queryverse.jl](https://github.com/queryverse/Queryverse.jl): Like R's tidyverse? There is something similar in Julia!
 
 Note: Many many more, but it's outside the scope of this presentation, CI
 
 ---
+
+# Some of my favourite things #2
+
+* Macros aka meta programming:
+  - Want to know how fast your function is? Use `@btime foo()`, it runs your function many times averaging the resulting stopping times. Also gives information about allocation of memory.
+  - Want to know how to make your code faster? Use `@trace`. Want to see the machine code your function produces? Use `@code_native`.
+
+
+---
+
+# Some of my favourite things #3
+
+* `github` integration: your code and its documentation accessible to everyone, automatically tested on multiple architectures, with coverage reports.
+  - You would like to know how one of the packages works you are using? You can view the source code on `github` and read it (most likely written in Julia)!
+* Makes it easy to contribute yourself. File issues with developers directly, bugs are quickly fixed.
+
+
+---
+
 
 # Free & open source
 
@@ -193,10 +214,20 @@ Note: This is true for Python and R, but not MATLAB. Julia got git integration r
 
 ---
 
+# Julia in economics
+
+* Julia enjoys growing popularity - also in economics.
+* The [NY FED ported their DSGE model](https://juliacomputing.com/case-studies/ny-fed.html) from Matlab to Julia and it became a lot faster (up to 10x).
+  - They also wrote a package: [DSGE.jl](https://github.com/FRBNY-DSGE/DSGE.jl)
+* Mainly a substitute for [Dynare](http://www.dynare.org/) is missing - [Dolo.jl](https://github.com/EconForge/Dolo.jl) is offering [some](https://www.youtube.com/watch?v=bzBb9dtmfEc) of its functionality.
+* [Here](https://www.sas.upenn.edu/~jesusfv/Update_March_23_2018.pdf) you can find a speed comparison of different programming languages in economics.
+
+---
+
 # Disadvantages
 Mostly it's just too new…
 
-Note: nothing is perfect. 
+Note: nothing is perfect.
 
 ----
 
@@ -210,7 +241,7 @@ Note: IDE (Integrated Development Environment). Maybe in 6 months or so the envi
 
 ----
 
-## Still working out all the kinks 
+## Still working out all the kinks
 
 * Loading some packages is still a bit slow.
 * Plotting works but hasn't settled yet.
@@ -223,6 +254,7 @@ Note: IDE (Integrated Development Environment). Maybe in 6 months or so the envi
 * Need statistics? `R`
 * Need vectorized operations on matrices? `MATLAB`
 * `Julia` (like `Python`) is more general-purpose → can be harder to find what you're looking for.
+  - But if you can do it all in Julia - that's nice.
 
 Note: apropos statistics, Douglas Bates, the developer of the `lme4` R package for GLMMs switched to Julia.
 
@@ -232,7 +264,7 @@ Note: apropos statistics, Douglas Bates, the developer of the `lme4` R package f
 
 * `Julia` is considered by many one of the best dynamic languages out there.
 * A number of libraries already far out-perform their equivalents in other languages.
-* People come to `Julia` because of its speed, but stay for the type-dispatch system ♥ 
+* People come to `Julia` because of its speed, but stay for the type-dispatch system ♥
 * Suffers from being "too new": might not be suitable for early adopters.
 
 Note: I've started using Julia about 4 years ago and never looked back.
